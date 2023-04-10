@@ -12,6 +12,8 @@ import httpx
 def send_to_telegram(message):
     bot_token = os.getenv('BOT_TOKEN')
     chat_id = os.getenv('CHAT_ID')
+    print('BOT_TOKEN', bot_token)
+    print('CHAT_ID', chat_id)
     url = f'https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={message}'
     response = httpx.get(url)
     print(response.text)
